@@ -1,5 +1,6 @@
+// Card.js
 import React from 'react';
-import './Card.css'; // Assuming you have a Card.css for styling
+import '../styles/Card.css'; // Make sure this file exists and has styling
 
 function Card({ children }) {
     return (
