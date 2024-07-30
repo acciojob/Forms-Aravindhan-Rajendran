@@ -1,8 +1,10 @@
+// App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Form from './Form';
 import FormRef from './FormRef';
 import FormState from './FormState';
+import Card from './Card'; // Assuming Card component is for styling
 
 function App() {
     return (
@@ -11,20 +13,20 @@ function App() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/form">Form Layout</Link>
+                            <Link to="/form" id="form-link">Form Layout</Link>
                         </li>
                         <li>
-                            <Link to="/form-ref">Form with useRef</Link>
+                            <Link to="/form-ref" id="form-ref-link">Form with useRef</Link>
                         </li>
                         <li>
-                            <Link to="/form-state">Form with useState</Link>
+                            <Link to="/form-state" id="form-state-link">Form with useState</Link>
                         </li>
                     </ul>
                 </nav>
                 <Routes>
-                    <Route path="/form" element={<Form />} />
-                    <Route path="/form-ref" element={<FormRef />} />
-                    <Route path="/form-state" element={<FormState />} />
+                    <Route path="/form" element={<Card><Form /></Card>} />
+                    <Route path="/form-ref" element={<Card><FormRef /></Card>} />
+                    <Route path="/form-state" element={<Card><FormState /></Card>} />
                 </Routes>
             </div>
         </Router>
