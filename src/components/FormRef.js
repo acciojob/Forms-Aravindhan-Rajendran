@@ -18,20 +18,20 @@ const FormRef = () => {
     <form id="info-form" onSubmit={handleSubmit}>
       <h2>Form with useRef</h2>
       <div>
-        <label htmlFor="full_name_ref">Full Name:</label>
-        <input type="text" id="full_name_ref" ref={fullNameRef} />
+        <label htmlFor="full_name">Full Name:</label>
+        <input type="text" id="full_name" ref={fullNameRef} />
       </div>
       <div>
-        <label htmlFor="email_ref">Email:</label>
-        <input type="email" id="email_ref" ref={emailRef} />
+        <label htmlFor="email">Email:</label>
+        <input type="email" id="email" ref={emailRef} />
       </div>
       <div>
         <label htmlFor="password_ref">Password:</label>
-        <input type="password" id="password_ref" ref={passwordRef} />
+        <input type="password" id="password" ref={passwordRef} />
       </div>
       <div>
         <label htmlFor="password_confirmation_ref">Confirm Password:</label>
-        <input type="password" id="password_confirmation_ref" ref={passwordConfirmationRef} />
+        <input type="password" id="password_confirmation" ref={passwordConfirmationRef} />
       </div>
       <button type="submit">Submit</button>
     </form>
