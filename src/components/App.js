@@ -26,13 +26,13 @@ const App = () => {
       <nav>
         <ul>
           <li>
-            <button onClick={() => setActiveSection('form')}>Form Layout</button>
+            <button onClick={() => setActiveSection('form')} id="form-link">Form Layout</button>
           </li>
           <li>
-            <button onClick={() => setActiveSection('form-ref')}>Form with useRef</button>
+            <button onClick={() => setActiveSection('form-ref')} id="form-ref-link">Form with useRef</button>
           </li>
           <li>
-            <button onClick={() => setActiveSection('form-state')}>Form with useState</button>
+            <button onClick={() => setActiveSection('form-state')} id="form-state-link">Form with useState</button>
           </li>
         </ul>
       </nav>
