@@ -8,7 +8,6 @@ const FormState = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission using state
     console.log('Full Name:', fullName);
     console.log('Email:', email);
     console.log('Password:', password);
@@ -16,44 +15,46 @@ const FormState = () => {
   };
 
   return (
-    <div id="info-form">
+    <form id="info-form" onSubmit={handleSubmit}>
       <h2>Form with useState</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="full_name">Full Name:</label>
+      <div>
+        <label htmlFor="full_name_state">Full Name:</label>
         <input
           type="text"
-          id="full_name"
+          id="full_name_state"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
         />
-        <br />
-        <label htmlFor="email">Email:</label>
+      </div>
+      <div>
+        <label htmlFor="email_state">Email:</label>
         <input
           type="email"
-          id="email"
+          id="email_state"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br />
-        <label htmlFor="password">Password:</label>
+      </div>
+      <div>
+        <label htmlFor="password_state">Password:</label>
         <input
           type="password"
-          id="password"
+          id="password_state"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br />
-        <label htmlFor="password_confirmation">Confirm Password:</label>
+      </div>
+      <div>
+        <label htmlFor="password_confirmation_state">Confirm Password:</label>
         <input
           type="password"
-          id="password_confirmation"
+          id="password_confirmation_state"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
