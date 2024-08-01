@@ -1,33 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Form from './Form';
+import FormRef from './FormRef';
+import FormState from './FormState';
+import Card from './Card';
 
-const Form = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Form submitted');
+const App = () => {
+  const [activeSection, setActiveSection] = useState('form');
+
+  useEffect(() => {
+    const path = window.location.pathname.replace('/', '');
+    if (path) {
+      setActiveSection(path);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.history.replaceState(null, '', `/${activeSection}`);
+  }, [activeSection]);
+
+  const renderFormSection = () => {
+    switch (activeSection) {
+      case 'form':
+        return <Form />;
+      case 'form-ref':
+        return <FormRef />;
+      case 'form-state':
+        return <FormState />;
+      default:
+        return <Form />;
+    }
   };
 
   return (
-    <form id="info-form" onSubmit={handleSubmit}>
-      <h2>Form Layout</h2>
-      <div>
-        <label htmlFor="full_name">Full Name:</label>
-        <input type="text" id="full_name" />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" />
-      </div>
-      <div>
-        <label htmlFor="password_confirmation">Confirm Password:</label>
-        <input type="password" id="password_confirmation" />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <button onClick={() => setActiveSection('form')} id="form-link">Form Layout</button>
+          </li>
+          <li>
+            <button onClick={() => setActiveSection('form-ref')} id="form-ref-link">Form with useRef</button>
+          </li>
+          <li>
+            <button onClick={() => setActiveSection('form-state')} id="form-state-link">Form with useState</button>
+          </li>
+        </ul>
+      </nav>
+      <Card key={activeSection}>
+        {renderFormSection()}
+      </Card>
+    </div>
   );
 };
 
-export default Form;
+export default App;
