@@ -46,7 +46,7 @@ const App = () => {
           </li>
         </ul>
       </nav>
-      <Card>
+      <Card key={activeSection}>
         {renderFormSection()}
       </Card>
     </div>
