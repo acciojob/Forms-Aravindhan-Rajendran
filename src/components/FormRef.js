@@ -26,11 +26,11 @@ const FormRef = () => {
         <input type="email" id="email" ref={emailRef} />
       </div>
       <div>
-        <label htmlFor="password_ref">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input type="password" id="password" ref={passwordRef} />
       </div>
       <div>
-        <label htmlFor="password_confirmation_ref">Confirm Password:</label>
+        <label htmlFor="password_confirmation">Confirm Password:</label>
         <input type="password" id="password_confirmation" ref={passwordConfirmationRef} />
       </div>
       <button type="submit">Submit</button>
