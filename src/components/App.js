@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from './Form';
 import FormRef from './FormRef';
 import FormState from './FormState';
@@ -6,6 +6,17 @@ import Card from './Card';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('form');
+
+  useEffect(() => {
+    const path = window.location.pathname.replace('/', '');
+    if (path) {
+      setActiveSection(path);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.history.replaceState(null, '', `/${activeSection}`);
+  }, [activeSection]);
 
   const renderFormSection = () => {
     switch (activeSection) {
