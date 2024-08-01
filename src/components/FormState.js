@@ -18,37 +18,37 @@ const FormState = () => {
     <form id="info-form" onSubmit={handleSubmit}>
       <h2>Form with useState</h2>
       <div>
-        <label htmlFor="full_name_state">Full Name:</label>
+        <label htmlFor="full_name">Full Name:</label>
         <input
           type="text"
-          id="full_name_state"
+          id="full_name"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="email_state">Email:</label>
+        <label htmlFor="email">Email:</label>
         <input
           type="email"
-          id="email_state"
+          id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="password_state">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           type="password"
-          id="password_state"
+          id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="password_confirmation_state">Confirm Password:</label>
+        <label htmlFor="password_confirmation">Confirm Password:</label>
         <input
           type="password"
-          id="password_confirmation_state"
+          id="password_confirmation"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
