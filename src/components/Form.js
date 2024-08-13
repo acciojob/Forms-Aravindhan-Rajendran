@@ -20,7 +20,6 @@ const Form = () => {
         <label htmlFor="password_confirmation">Confirm Password:</label>
         <input type="password" id="password_confirmation" />
       </div>
-      <button type="submit">Submit</button>
     </form>
   );
 };
