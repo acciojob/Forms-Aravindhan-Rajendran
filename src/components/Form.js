@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 
-const Form = () => {
+const Form = forwardRef((props, ref) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Form Layout Submitted');
+    // Additional submit logic here
+  };
+
+  useImperativeHandle(ref, () => ({
+    handleSubmit
+  }));
+
   return (
     <form id="info-form">
       <h2>Form Layout</h2>
@@ -22,6 +32,6 @@ const Form = () => {
       </div>
     </form>
   );
-};
+});
 
 export default Form;
