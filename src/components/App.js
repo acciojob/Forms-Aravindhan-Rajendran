@@ -18,18 +18,19 @@ const App = () => {
     window.history.replaceState(null, '', `/${activeSection}`);
   }, [activeSection]);
 
-  const renderFormSection = () => {
-    switch (activeSection) {
-      case 'form':
-        return <Form />;
-      case 'form-ref':
-        return <FormRef />;
-      case 'form-state':
-        return <FormState />;
-      default:
-        return <Form />;
-    }
-  };
+const renderFormSection = () => {
+  switch (activeSection) {
+    case 'form':
+      return <Form />;
+    case 'form-ref':
+      return <FormRef />;
+    case 'form-state':
+      return <FormState />;
+    default:
+      return null; // return null when activeSection doesn't match any form section
+  }
+};
+
 
   return (
     <div>
