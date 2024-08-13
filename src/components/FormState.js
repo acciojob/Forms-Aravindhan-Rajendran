@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 
-const FormState = () => {
+const FormState = forwardRef((props, ref) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,6 +13,10 @@ const FormState = () => {
     console.log('Password:', password);
     console.log('Password Confirmation:', passwordConfirmation);
   };
+
+  useImperativeHandle(ref, () => ({
+    handleSubmit
+  }));
 
   return (
     <form id="info-form" onSubmit={handleSubmit}>
@@ -55,6 +59,6 @@ const FormState = () => {
       </div>
     </form>
   );
-};
+});
 
 export default FormState;
