@@ -1,5 +1,7 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
+// Your component code
 const App = () => {
   return (
     <Router>
