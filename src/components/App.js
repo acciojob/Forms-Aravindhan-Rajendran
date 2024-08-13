@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Form from './Form';
 import FormRef from './FormRef';
 import FormState from './FormState';
@@ -6,6 +6,7 @@ import Card from './Card';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('form');
+  const formRef = useRef(null);
 
   useEffect(() => {
     const path = window.location.pathname.replace('/', '');
@@ -18,19 +19,25 @@ const App = () => {
     window.history.replaceState(null, '', `/${activeSection}`);
   }, [activeSection]);
 
-const renderFormSection = () => {
-  switch (activeSection) {
-    case 'form':
-      return <Form />;
-    case 'form-ref':
-      return <FormRef />;
-    case 'form-state':
-      return <FormState />;
-    default:
-      return null; // return null when activeSection doesn't match any form section
-  }
-};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (formRef.current) {
+      formRef.current.handleSubmit();
+    }
+  };
 
+  const renderFormSection = () => {
+    switch (activeSection) {
+      case 'form':
+        return <Form ref={formRef} />;
+      case 'form-ref':
+        return <FormRef ref={formRef} />;
+      case 'form-state':
+        return <FormState ref={formRef} />;
+      default:
+        return null; // return null when activeSection doesn't match any form section
+    }
+  };
 
   return (
     <div>
@@ -47,10 +54,10 @@ const renderFormSection = () => {
           </li>
         </ul>
       </nav>
-          <button type="submit" onClick{handleSubmit}>Submit</button>
       <Card key={activeSection}>
         {renderFormSection()}
       </Card>
+      <button type="submit" onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
