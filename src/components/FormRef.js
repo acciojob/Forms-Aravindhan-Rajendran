@@ -34,4 +34,4 @@ const FormRef = () => {
     )
 }
  
-export default FormRef
+export default FormRef;
