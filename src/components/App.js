@@ -47,6 +47,7 @@ const renderFormSection = () => {
           </li>
         </ul>
       </nav>
+          <button type="submit" onClick{handleSubmit}>Submit</button>
       <Card key={activeSection}>
         {renderFormSection()}
       </Card>
