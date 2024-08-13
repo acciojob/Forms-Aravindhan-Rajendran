@@ -33,7 +33,6 @@ const FormRef = () => {
         <label htmlFor="password_confirmation">Confirm Password:</label>
         <input type="password" id="password_confirmation" ref={passwordConfirmationRef} />
       </div>
-      <button type="submit">Submit</button>
     </form>
   );
 };
