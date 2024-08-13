@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 
-const FormRef = () => {
+const FormRef = forwardRef((props, ref) => {
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -13,6 +13,10 @@ const FormRef = () => {
     console.log('Password:', passwordRef.current.value);
     console.log('Password Confirmation:', passwordConfirmationRef.current.value);
   };
+
+  useImperativeHandle(ref, () => ({
+    handleSubmit
+  }));
 
   return (
     <form id="info-form" onSubmit={handleSubmit}>
@@ -35,6 +39,6 @@ const FormRef = () => {
       </div>
     </form>
   );
-};
+});
 
 export default FormRef;
