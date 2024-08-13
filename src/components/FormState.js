@@ -53,7 +53,6 @@ const FormState = () => {
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
       </div>
-      <button type="submit">Submit</button>
     </form>
   );
 };
